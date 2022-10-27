@@ -9,7 +9,6 @@ function checkIfStart(str) {
       return false;
     }
   } else {
-    console.log("Argument is not a string");
     return false;
   }
 }
