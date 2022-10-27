@@ -3,7 +3,6 @@ const strStartWith = "if";
 function checkIfStart(str) {
   if (typeof str === "string") {
     if (str.indexOf(strStartWith) === 0) {
-      // 👇️ this runs
       return true;
     } else {
       return false;
