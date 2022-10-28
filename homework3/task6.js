@@ -18,7 +18,7 @@ console.log(b); // 2
 // Therefore: a++ means variable a still hold it's previous value of "a" and have not return the new incremented value to variable "b" after incrementing
 // Then: b =  ++a also a = 2;
 
-console.log(c);
+console.log(c); // 4
 
 // Result: 4
 // Reason:
