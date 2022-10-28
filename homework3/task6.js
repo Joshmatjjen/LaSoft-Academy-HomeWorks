@@ -22,6 +22,6 @@ console.log(c);
 
 // Result: 4
 // Reason:
-// Variable "c" was declasred for a prefix increment, which takes all the increment for variable "a" and then return it back to the newly decleared variable,
+// Variable "c" was declared for a prefix increment, which takes all the increment for variable "a" and then return it back to the newly declared variable,
 // Therefore: ++a  take all the new incremented value to variable "a" & "b" , and after incrementing it return it back variable "c"
 // Then: a = 2 , a++ = 3,  c = ++a (3 + 1), c  = 4;
