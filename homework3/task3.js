@@ -1,11 +1,8 @@
 function splitDelimitedString(delimitedString) {
   if (typeof delimitedString === "string") {
-    const newArray = delimitedString
-      .replace("“", "")
-      .replace("”", "")
-      .split(",");
-    let numArray = [];
-    let strArray = [];
+    const newArray = delimitedString.split(",");
+    const numArray = [];
+    const strArray = [];
     for (let i = 0; i < newArray.length; i++) {
       if (isNaN(newArray[i]) === true) {
         strArray.push(newArray[i]);
@@ -19,6 +16,6 @@ function splitDelimitedString(delimitedString) {
   }
 }
 
-const delimitedString = "“Red, Green, Blue, 1, White, 3, 4, 5, 7”";
+const delimitedString = "Red, Green, Blue, 1, White, 3, 4, 5, 7";
 
 console.log(splitDelimitedString(delimitedString));

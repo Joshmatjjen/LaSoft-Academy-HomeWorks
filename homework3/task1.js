@@ -1,5 +1,5 @@
 function pickRandomNum(randomArr, numPick) {
-  let result = [];
+  const result = [];
 
   if (
     randomArr instanceof Array &&
