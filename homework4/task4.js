@@ -44,16 +44,12 @@ function getNameScore(name) {
   switch (true) {
     case score <= 60:
       return `Your score ${score}, which is NOT TOO GOOD`;
-      break;
     case 61 <= score && score <= 300:
       return `Your score ${score}, which is PRETTY GOOD`;
-      break;
     case 301 <= score && score <= 599:
       return `Your score ${score}, which is VERY GOOD`;
-      break;
     case score >= 600:
       return `Your score ${score}, which is THE BEST`;
-      break;
     default:
       return `Your score ${score}, which is NOT TOO GOOD`;
   }
