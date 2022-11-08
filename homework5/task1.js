@@ -12,7 +12,7 @@ PersonFunc.prototype.getFullName = function () {
     if (!this.lastName) throw new Error("Last name is not defined");
     return `${this.firstName} ${this.lastName}`;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 PersonFunc.prototype.getAge = function () {
@@ -28,7 +28,7 @@ PersonFunc.prototype.getAge = function () {
     const ageDate = new Date(ageDifMs);
     return Math.abs(ageDate.getUTCFullYear() - 1970) + " years";
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 PersonFunc.prototype.getFullAddress = function () {
@@ -48,7 +48,7 @@ PersonFunc.prototype.getFullAddress = function () {
         this.address.house || this.address.apartment
     );
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

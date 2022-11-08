@@ -13,7 +13,7 @@ class PersonClass {
       if (!this.lastName) throw new Error("Last name is not defined");
       return `${this.firstName} ${this.lastName}`;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
   getAge() {
@@ -29,7 +29,7 @@ class PersonClass {
       const ageDate = new Date(ageDifMs);
       return Math.abs(ageDate.getUTCFullYear() - 1970) + " years";
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
   getFullAddress() {
@@ -49,7 +49,7 @@ class PersonClass {
           this.address.house || this.address.apartment
       );
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }

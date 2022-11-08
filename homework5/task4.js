@@ -12,7 +12,7 @@ class WorkingPersonClass extends PersonClass {
       if (!this.job) throw new Error("Job is not defined");
       return `${this.firstName} ${this.lastName}, ${this.job.title}, job experience ${this.job.experience} years`;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }
