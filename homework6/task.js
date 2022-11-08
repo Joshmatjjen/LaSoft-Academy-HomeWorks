@@ -22,7 +22,7 @@ function quadraticEquation(a, b, c) {
       }
     } else {
       result = "missing parameter";
-      throw new Error("Some parameter is missing");
+      throw new Error("Some parameters are missing");
     }
   } catch (error) {
     console.error(error);
