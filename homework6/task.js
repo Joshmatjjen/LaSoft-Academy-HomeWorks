@@ -6,18 +6,20 @@ function quadraticEquation(a, b, c) {
       typeof b === "number" &&
       typeof c === "number"
     ) {
-      const quad1 = (
-        (-1 * b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) /
-        (2 * a)
-      ).toFixed(3);
-      const quad2 = (
-        (-1 * b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) /
-        (2 * a)
-      ).toFixed(3);
+      const d = Math.sqrt(Math.pow(b, 2) - 4 * a * c);
 
-      if (!isFinite(quad1) || !isFinite(quad1)) {
+      if (!isFinite(d)) {
         result = "not a quadratic equation";
       } else {
+        const quad1 = (
+          (-1 * b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) /
+          (2 * a)
+        ).toFixed(3);
+        const quad2 = (
+          (-1 * b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) /
+          (2 * a)
+        ).toFixed(3);
+
         result = `x1=${Math.floor(quad1)}, x2=${Math.floor(quad2)}`;
       }
     } else {
