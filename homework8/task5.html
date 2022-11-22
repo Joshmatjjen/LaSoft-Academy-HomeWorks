@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="task5.js"></script>
+  <title>Search with promise</title>
+</head>
+<style>
+  body {
+    background: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .search {
+    width: 60%;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /* input {} */
+
+  .searchTerm {
+    flex: 1;
+    border-right: none;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+  }
+
+  .searchTerm:focus {
+    /* color: #00B4CC; */
+  }
+
+  .searchButton {
+    width: 40px;
+    height: 36px;
+    /* border: 1px solid #00B4CC; */
+    /* background: #00B4CC; */
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+  }
+
+  li {
+    padding: 10px 0;
+  }
+
+  button {
+    height: 100%;
+    min-width: 2rem
+  }
+</style>
+
+<body>
+  <div class="wrap">
+    <div class="search">
+      <input id="searchInput" type="text" class="searchTerm" placeholder="Enter joke keyword">
+      <!-- <button title="Search" name="Search" type="submit" class="searchButton" /> -->
+      <button type="button" onclick="searchJoke()">Search</button>
+      <button type="button" onclick="getRandom()">Get Random Jokes</button>
+    </div>
+    <div>
+      <h4>Jokes</h4>
+      <ul id="jokeList"></ul>
+    </div>
+  </div>
+</body>
+
+</html>
