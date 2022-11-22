@@ -1,5 +1,4 @@
 function argumentsLogger() {
-  // console.log(arguments.length);
   const result = [];
   for (let i = 0; i < arguments.length; i++) {
     result.push(`argument ${i}: ${arguments[i]}`);
