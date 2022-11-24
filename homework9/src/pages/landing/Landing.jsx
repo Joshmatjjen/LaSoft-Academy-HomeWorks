@@ -1,16 +1,17 @@
 import React from "react";
+
+import Button from "../../components/Button";
+
 import parisImg from "../../assets/img/paris.png";
 import artOnArtImg from "../../assets/img/artOnArt.png";
-import Button from "../../components/button/Button";
-const Home = () => {
-  console.log("Hello");
 
+const Landing = () => {
   return (
-    <div class="content">
-      <section class="content--one">
-        <div class="content--one__left">
+    <div className="content">
+      <section className="content--one">
+        <div className="content--one__left">
           <h3>Desperate to learn drawing? We’ll teach you!</h3>
-          <div class="content--one__left--info">
+          <div className="content--one__left--info">
             <p>
               Our school has more than 20 years of experience in teaching people
               who always thought that they don’t have even a slightest hint of a
@@ -33,16 +34,16 @@ const Home = () => {
             <Button title="Apply now" classes="apply-btn" />
           </div>
         </div>
-        <div class="content--one__right">
+        <div className="content--one__right">
           <img src={parisImg} alt="Paris Eiffel Tower" />
         </div>
       </section>
-      <section class="content--two">
-        <div class="content--two__left">
+      <section className="content--two">
+        <div className="content--two__left">
           <img src={artOnArtImg} alt="Paris Eiffel Tower" />
         </div>
 
-        <div class="content--two__right">
+        <div className="content--two__right">
           <h4>Interested but currently have other plans?</h4>
           <p>
             Subscribe to our newsletter to stay tuned and get hottest updates
@@ -55,4 +56,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Landing;

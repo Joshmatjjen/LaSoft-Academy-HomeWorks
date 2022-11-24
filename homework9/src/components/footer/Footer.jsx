@@ -3,12 +3,12 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
-      <div class="footer--container">
+      <div className="footer--container">
         <div>
           <p>©Simple Art, Inc. 2021</p>
           <p>All rights reserved</p>
         </div>
-        <ul class="footer-nav">
+        <ul className="footer-nav">
           <li>
             <a href="#" target="_self">
               Terms

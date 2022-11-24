@@ -1,8 +1,9 @@
 import React from "react";
+import { clsx } from "clsx";
 
 const Button = ({ title, classes }) => {
   return (
-    <div class={classes + " btn"}>
+    <div className={clsx(classes, "btn")}>
       <p>{title}</p>
     </div>
   );

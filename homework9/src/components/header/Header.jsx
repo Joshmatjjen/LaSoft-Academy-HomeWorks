@@ -1,4 +1,5 @@
 import React from "react";
+
 import logo from "../../assets/img/logo.png";
 
 const Header = () => {
@@ -14,23 +15,23 @@ const Header = () => {
   };
 
   return (
-    <header class="header">
-      <div class="header--content">
-        <div class="logo">
+    <header className="header">
+      <div className="header--content">
+        <div className="logo">
           <a href="#">
             <img src={logo} alt="" srcset="" />
           </a>
         </div>
         <input
-          class="menu-btn"
+          className="menu-btn"
           type="checkbox"
           id="menu-btn"
           onClick={toggle}
         />
-        <label class="menu-icon" for="menu-btn">
-          <span class="nav-icon"></span>
+        <label className="menu-icon" for="menu-btn">
+          <span className="nav-icon"></span>
         </label>
-        <ul class="menu-list-container">
+        <ul className="menu-list-container">
           <li>
             <a href="#" target="_self">
               Course
@@ -51,8 +52,8 @@ const Header = () => {
               About us
             </a>
           </li>
-          <li class="menu__btn">
-            <a class="btn" href="#" target="_self">
+          <li className="menu__btn">
+            <a className="btn" href="#" target="_self">
               Apply now
             </a>
           </li>

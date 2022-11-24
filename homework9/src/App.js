@@ -1,7 +1,11 @@
+import React from "react";
+
+import Landing from "./pages/Landing";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 import "./App.css";
-import Header from "./components/header/Header";
-import Landing from "./pages/landing/Landing";
-import Footer from "./components/footer/Footer";
 
 function App() {
   return (
