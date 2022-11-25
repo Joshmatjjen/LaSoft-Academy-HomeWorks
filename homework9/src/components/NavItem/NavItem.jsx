@@ -1,8 +1,8 @@
 import React from "react";
 
-const NavItem = ({ title }) => (
-  <li>
-    <a href="#" target="_self">
+const NavItem = ({ title, liClass, aClass }) => (
+  <li className={liClass}>
+    <a className={aClass} href="#" target="_self">
       {title}
     </a>
   </li>

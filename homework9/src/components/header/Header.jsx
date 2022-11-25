@@ -34,31 +34,10 @@ const Header = () => {
         </label>
         <ul className="menu-list-container">
           <NavItem title="Course" />
-          <NavItem title="Course" />
-          <NavItem title="Course" />
-          <NavItem title="Course" />
-          <NavItem title="Course" />
-          <NavItem title="Course" />
-          <li>
-            <a href="#" target="_self">
-              Teacher
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_self">
-              Price
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_self">
-              About us
-            </a>
-          </li>
-          <li className="menu__btn">
-            <a className="btn" href="#" target="_self">
-              Apply now
-            </a>
-          </li>
+          <NavItem title="Teacher" />
+          <NavItem title="Price" />
+          <NavItem title="About us" />
+          <NavItem title="Apply now" liClass="menu__btn" aClass="btn" />
         </ul>
       </div>
     </header>
