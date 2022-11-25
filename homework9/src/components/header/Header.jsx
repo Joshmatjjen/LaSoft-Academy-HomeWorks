@@ -1,6 +1,7 @@
 import React from "react";
 
 import logo from "../../assets/img/logo.png";
+import NavItem from "../NavItem";
 
 const Header = () => {
   const cb = document.querySelector("#menu-btn");
@@ -32,11 +33,12 @@ const Header = () => {
           <span className="nav-icon"></span>
         </label>
         <ul className="menu-list-container">
-          <li>
-            <a href="#" target="_self">
-              Course
-            </a>
-          </li>
+          <NavItem title="Course" />
+          <NavItem title="Course" />
+          <NavItem title="Course" />
+          <NavItem title="Course" />
+          <NavItem title="Course" />
+          <NavItem title="Course" />
           <li>
             <a href="#" target="_self">
               Teacher

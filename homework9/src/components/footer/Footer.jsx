@@ -1,4 +1,5 @@
 import React from "react";
+import NavItem from "../NavItem";
 
 const Footer = () => {
   return (
@@ -9,21 +10,9 @@ const Footer = () => {
           <p>All rights reserved</p>
         </div>
         <ul className="footer-nav">
-          <li>
-            <a href="#" target="_self">
-              Terms
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_self">
-              Privacy Policy
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_self">
-              Help & Support
-            </a>
-          </li>
+          <NavItem title="Terms" />
+          <NavItem title="Privacy Policy" />
+          <NavItem title="Help & Support" />
         </ul>
       </div>
     </footer>
