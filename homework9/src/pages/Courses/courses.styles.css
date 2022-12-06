@@ -1,0 +1,87 @@
+.courses--content {
+  display: flex;
+  flex-direction: column;
+}
+
+.courses--content__box {
+  display: flex;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10%;
+}
+
+.courses-item {
+  width: 20rem;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+
+  box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 1);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 1);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 1);
+}
+
+.courses-item-container {
+  padding: 0 12px 12px 12px;
+}
+
+.courses-item img {
+  width: 100%;
+}
+
+.courses-item-1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.courses-item-1 p {
+  font-family: "Poppins-SemiBold";
+  color: #000000;
+  font-size: 16px;
+}
+
+.courses-item-1 p:last-child {
+  font-family: "Poppins-SemiBold";
+  color: #1b6c71;
+  font-size: 16px;
+}
+
+.courses-item-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.courses-item-2 div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
+}
+
+.courses-item-2 div:last-child {
+  padding-top: 15px;
+}
+
+.courses-item-2 div p {
+  font-family: "Poppins-Light";
+  font-size: 11px;
+  color: #4f5d5d;
+  margin: 0;
+}
+
+.courses-item-2 div p:last-child {
+  text-align: right;
+  color: #000000;
+}
+
+.courses-item-3 p {
+  font-family: "Poppins-Light";
+  font-size: 12px;
+}
+
+.courses-item-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}

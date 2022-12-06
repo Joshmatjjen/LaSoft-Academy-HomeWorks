@@ -2,12 +2,26 @@ import React from "react";
 
 import Button from "../../components/Button";
 
+import Subscribe from "../../modal/Subscribe";
+
 import parisImg from "../../assets/img/paris.png";
 import artOnArtImg from "../../assets/img/artOnArt.png";
+import ImageBackground from "../../components/ImageBackground";
 
 const Landing = () => {
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   return (
     <div className="content">
+      <Subscribe modalIsOpen={modalIsOpen} closeModal={closeModal} />
       <section className="content--one">
         <div className="content--one__left">
           <h3>Desperate to learn drawing? We’ll teach you!</h3>
@@ -31,17 +45,21 @@ const Landing = () => {
               </li>
             </ul>
 
-            <Button title="Apply now" classes="apply-btn" />
+            <Button title="Apply now" classes="apply-btn" route="/apply" />
           </div>
         </div>
-        <div className="content--one__right">
-          <img src={parisImg} alt="Paris Eiffel Tower" />
-        </div>
+        <ImageBackground
+          className="content--one__right"
+          image={parisImg}
+          alt="Paris Eiffel Tower"
+        />
       </section>
       <section className="content--two">
-        <div className="content--two__left">
-          <img src={artOnArtImg} alt="Paris Eiffel Tower" />
-        </div>
+        <ImageBackground
+          className="content--two__left"
+          image={artOnArtImg}
+          alt="Art on Art"
+        />
 
         <div className="content--two__right">
           <h4>Interested but currently have other plans?</h4>
@@ -49,7 +67,12 @@ const Landing = () => {
             Subscribe to our newsletter to stay tuned and get hottest updates
             and deals
           </p>
-          <Button title="Subscribe" classes="content--two__right--btn" />
+          <Button
+            title="Subscribe"
+            classes="content--two__right--btn"
+            type="button"
+            onClick={() => openModal()}
+          />
         </div>
       </section>
     </div>

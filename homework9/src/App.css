@@ -116,8 +116,6 @@ a {
 }
 
 .content--one__left h3 {
-  font-family: "Baloo2-Bold";
-  color: #000000;
   font-size: 26px;
   margin-top: 0;
 }
@@ -153,6 +151,7 @@ a {
 .apply-btn {
   margin-top: 2em;
   width: 18em;
+  padding: 10px 0;
 }
 
 .content--one__right {
@@ -204,6 +203,7 @@ a {
   font-size: 14px;
 }
 .content--two__right--btn {
+  padding: 10px 0;
   width: 170px;
 }
 
@@ -402,6 +402,51 @@ Checks
 
 .hide-scroll {
   overflow: hidden;
+}
+
+.active {
+  color: #59abb0 !important;
+}
+
+h3 {
+  font-family: "Baloo2-Bold";
+  color: #000000;
+}
+
+.spinner {
+  display: flex;
+  height: 70vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner p {
+  font-family: "Poppins-SemiBold";
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 100px;
+}
+
+.spinner-loader {
+  margin-top: -200px;
+}
+
+.backBtn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.backBtn img {
+  height: 100%;
+}
+
+div[disabled] {
+  pointer-events: none;
+  opacity: 0.7;
+  background-color: #c2d2d2;
 }
 
 /* ================================= 

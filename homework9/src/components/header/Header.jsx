@@ -1,9 +1,13 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import logo from "../../assets/img/logo.png";
 import NavItem from "../NavItem";
 
-const Header = () => {
+import logo from "../../assets/img/logo.png";
+import backArrow from "../../assets/img/backArrow.png";
+
+const Header = ({ showBackButton }) => {
+  const navigate = useNavigate();
   const cb = document.querySelector("#menu-btn");
   const body = document.getElementsByTagName("BODY")[0];
 
@@ -19,26 +23,41 @@ const Header = () => {
     <header className="header">
       <div className="header--content">
         <div className="logo">
-          <a href="#">
+          <Link to="/">
             <img src={logo} alt="" srcset="" />
-          </a>
+          </Link>
         </div>
-        <input
-          className="menu-btn"
-          type="checkbox"
-          id="menu-btn"
-          onClick={toggle}
-        />
-        <label className="menu-icon" for="menu-btn">
-          <span className="nav-icon"></span>
-        </label>
-        <ul className="menu-list-container">
-          <NavItem title="Course" />
-          <NavItem title="Teacher" />
-          <NavItem title="Price" />
-          <NavItem title="About us" />
-          <NavItem title="Apply now" liClass="menu__btn" aClass="btn" />
-        </ul>
+
+        {showBackButton ? (
+          <div className="backBtn" onClick={() => navigate(-1)}>
+            <img src={backArrow} alt="" />
+            <p>Back</p>
+          </div>
+        ) : (
+          <>
+            <input
+              className="menu-btn"
+              type="checkbox"
+              id="menu-btn"
+              onClick={toggle}
+            />
+            <label className="menu-icon" for="menu-btn">
+              <span className="nav-icon"></span>
+            </label>
+            <ul className="menu-list-container">
+              <NavItem title="Course" type="link" routeTo={"/courses"} />
+              <NavItem title="Teacher" type="link" routeTo={"/teachers"} />
+              <NavItem title="About us" type="link" routeTo={"/about"} />
+              <NavItem
+                title="Apply now"
+                type="button"
+                routeTo={"/apply"}
+                liClass="menu__btn"
+                aClass="btn"
+              />
+            </ul>
+          </>
+        )}
       </div>
     </header>
   );

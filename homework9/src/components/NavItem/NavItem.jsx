@@ -1,11 +1,23 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { clsx } from "clsx";
 
-const NavItem = ({ title, liClass, aClass }) => (
-  <li className={liClass}>
-    <a className={aClass} href="#" target="_self">
-      {title}
-    </a>
-  </li>
-);
+const NavItem = ({ title, type, liClass, aClass, routeTo }) => {
+  const { pathname } = useLocation();
+
+  return (
+    <li className={liClass}>
+      <Link
+        className={clsx(
+          pathname === routeTo && type === "link" && "active",
+          aClass
+        )}
+        to={routeTo || "/"}
+      >
+        {title}
+      </Link>
+    </li>
+  );
+};
 
 export default NavItem;
