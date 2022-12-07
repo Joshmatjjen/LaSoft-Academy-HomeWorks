@@ -1,0 +1,13 @@
+.img-bg {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+.img-bg div {
+  position: absolute;
+  background-color: transparent;
+  width: 95%;
+  height: 95%;
+  align-self: center;
+  border: 12px solid white;
+}
