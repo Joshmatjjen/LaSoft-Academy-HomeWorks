@@ -1,0 +1,58 @@
+.subscribe {
+  height: 512px;
+  display: flex;
+  justify-content: center;
+}
+
+.subscribe-close {
+  position: absolute;
+  font-size: 30px;
+  font-family: "Poppins-Light";
+  left: 1rem;
+  top: 1rem;
+  cursor: pointer;
+}
+
+.subscribe-close p {
+  margin: 0;
+}
+
+.subscribe-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  height: 100%;
+}
+
+.subscribe-box h4 {
+  font-size: 20px;
+  font-family: "Poppins-Light";
+  padding: 0 35px;
+  text-align: center;
+}
+
+.subscribe-form {
+  display: flex;
+  margin-bottom: 5rem;
+  padding: 0 35px;
+  gap: 5%;
+}
+
+.subscribe-image {
+  height: 100%;
+}
+
+.subscribe-image img {
+  height: 100%;
+}
+
+.subscribe-bottom {
+  width: 100%;
+  position: absolute;
+  font-size: 10px;
+  font-family: "Poppins-Light";
+  bottom: 0.5rem;
+  text-align: center;
+}

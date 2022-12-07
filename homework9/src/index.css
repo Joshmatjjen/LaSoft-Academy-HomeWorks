@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: Baloo-Regular;
+  src: url(./assets/fonts/Baloo-Regular.ttf);
+}
+
+@font-face {
+  font-family: Baloo2-Regular;
+  src: url(./assets/fonts/Baloo2-Regular.ttf);
+}
+
+@font-face {
+  font-family: Baloo2-Medium;
+  src: url(./assets/fonts/Baloo2-Medium.ttf);
+}
+
+@font-face {
+  font-family: Baloo2-Regular;
+  src: url(./assets/fonts/Baloo2-Regular.ttf);
+}
+
+@font-face {
+  font-family: Baloo2-Medium;
+  src: url(./assets/fonts/Baloo2-Medium.ttf);
+}
+
+@font-face {
+  font-family: Baloo2-SemiBold;
+  src: url(./assets/fonts/Baloo2-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Baloo2-Bold;
+  src: url(./assets/fonts/Baloo2-Bold.ttf);
+}
+
+/* POPPINS FONTS */
+
+@font-face {
+  font-family: Poppins-Light;
+  src: url(./assets/fonts/Poppins-Light.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url(./assets/fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url(./assets/fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(./assets/fonts/Poppins-Bold.ttf);
+}

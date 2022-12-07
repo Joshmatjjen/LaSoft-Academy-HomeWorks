@@ -1,0 +1,16 @@
+.about-content {
+  padding-bottom: 4rem;
+}
+
+.contact-location {
+  flex-direction: column;
+}
+.contact-location-box--1 {
+  padding-top: 1rem;
+}
+.contact-location-box--2 {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  padding-top: 1rem;
+}
