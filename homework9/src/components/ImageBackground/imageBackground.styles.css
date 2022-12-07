@@ -1,7 +1,7 @@
 .img-bg {
   display: flex;
   position: relative;
-  justify-content: center;
+  justify-content: center !important;
 }
 .img-bg div {
   position: absolute;
