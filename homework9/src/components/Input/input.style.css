@@ -1,0 +1,86 @@
+.input-box {
+  width: 304px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #c2d2d2;
+  border-radius: 10px;
+  outline-color: #1b6c71;
+  padding: 0 16px;
+  font-family: "Poppins-Light";
+}
+
+.input-box input::placeholder {
+  color: #93a3a3;
+}
+
+.input-apply {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  height: 40px;
+}
+
+.input-apply p {
+  align-self: center;
+  margin: 0;
+}
+
+.react-select__control {
+  width: 304px !important;
+  height: 40px !important;
+  border-radius: 10px !important;
+  border: 1px solid #c2d2d2 !important;
+}
+.react-select__control:hover {
+  border-color: #1b6c71 !important;
+}
+
+.react-select__control:hover {
+  border-color: #1b6c71 !important;
+}
+
+.react-select__control--is-focused {
+  border-color: #1b6c71 !important;
+  box-shadow: 0 0 0 1px #1b6c71 !important;
+}
+.react-select__control--menu-is-open {
+  border-color: #1b6c71 !important;
+}
+
+.react-select__menu {
+  border-radius: 10px !important;
+  border: 1px solid #1b6c71 !important;
+  overflow: hidden;
+}
+
+.react-select__indicator-separator {
+  background-color: transparent !important;
+}
+
+.react-select__option--is-focused {
+  background-color: #f6f6f0 !important;
+}
+
+.react-select__option--is-selected {
+  background-color: #f6f6f0 !important;
+  color: #000000 !important;
+}
+
+.react-select__dropdown-indicator {
+  background-color: transparent;
+  color: transparent;
+}
+
+.react-select__dropdown-indicator svg {
+  position: relative;
+  background-color: transparent;
+  height: 14px !important;
+  width: 14px !important;
+  top: 3px;
+  stroke-width: 200px !important;
+  fill: transparent;
+  color: #1b6c71;
+}
