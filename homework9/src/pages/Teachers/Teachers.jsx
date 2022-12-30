@@ -1,29 +1,51 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import { useDispatch, useSelector } from "react-redux";
 import BounceLoader from "react-spinners/BounceLoader";
+import { morphism } from "morphism";
 
 import { getTeachersAction } from "../../resources/teacher/teacher.actions";
-import { selectTeachers } from "../../resources/teacher/teacher.selectors";
 
 import "./teachers.styles.css";
 
-const Teachers = ({ onGetTeachersAction, teachers }) => {
+const Teachers = () => {
+  const dispatch = useDispatch();
+  const teachers = useSelector((state) => state.teacher.teachers);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
+
+  const teacherToCamel = (data) => {
+    console.log("data", data);
+    const schema = {
+      id: "id",
+      about: "about",
+      courses: "courses",
+      education: "education",
+      firstName: "first_name",
+      lastName: "last_name",
+      photo: "photo",
+    };
+
+    const source = {
+      ...data,
+    };
+    console.log("Result--", morphism(schema, source));
+    return morphism(schema, source);
+  };
+
+  console.log("Tech--", teachers);
 
   const fetchTeachers = useCallback(async () => {
     setErrorMsg(null);
     setLoading(true);
-    const res = await onGetTeachersAction();
+    const res = await dispatch(getTeachersAction());
     if (res.type === "success") {
       setErrorMsg(null);
       setLoading(false);
     } else {
-      setErrorMsg("No course found");
+      setErrorMsg(res.data);
       setLoading(false);
     }
-  }, [onGetTeachersAction]);
+  }, [dispatch]);
 
   useEffect(() => {
     fetchTeachers();
@@ -54,19 +76,23 @@ const Teachers = ({ onGetTeachersAction, teachers }) => {
 
           <section className="teachers--content__box">
             {teachers?.map((item) => (
-              <div key={item.id} className="teachers-item">
+              <div key={teacherToCamel(item).id} className="teachers-item">
                 <div className="teachers-item---image">
-                  <img src={item.photo} alt="" />
+                  <img src={teacherToCamel(item).photo} alt="" />
                 </div>
                 <div className="teachers-item-container">
                   <div className="teachers-item-1">
-                    <p>{item.first_name + " " + item.last_name}</p>
+                    <p>
+                      {teacherToCamel(item).firstName +
+                        " " +
+                        teacherToCamel(item).lastName}
+                    </p>
                   </div>
                   <div className="teachers-item-2">
                     <div>
                       <p>Courses:</p>
                       <ul>
-                        {item.courses.map((it) => (
+                        {teacherToCamel(item).courses.map((it) => (
                           <li>
                             {it} <br />
                           </li>
@@ -75,11 +101,11 @@ const Teachers = ({ onGetTeachersAction, teachers }) => {
                     </div>
                     <div>
                       <p>Education:</p>
-                      <p>{item.education}</p>
+                      <p>{teacherToCamel(item).education}</p>
                     </div>
                     <div>
                       <p>About me:</p>
-                      <p>{item.about}</p>
+                      <p>{teacherToCamel(item).about}</p>
                     </div>
                   </div>
                 </div>
@@ -92,12 +118,4 @@ const Teachers = ({ onGetTeachersAction, teachers }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  teachers: selectTeachers,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onGetTeachersAction: (data) => dispatch(getTeachersAction(data)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Teachers);
+export default Teachers;

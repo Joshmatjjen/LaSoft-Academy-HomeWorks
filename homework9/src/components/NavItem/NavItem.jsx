@@ -9,7 +9,9 @@ const NavItem = ({ title, type, liClass, aClass, routeTo }) => {
     <li className={liClass}>
       <Link
         className={clsx(
-          pathname === routeTo && type === "link" && "active",
+          {
+            active: pathname === routeTo && type === "link",
+          },
           aClass
         )}
         to={routeTo || "/"}

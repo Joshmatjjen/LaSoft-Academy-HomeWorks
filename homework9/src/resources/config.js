@@ -1,8 +1,6 @@
-const SERVER_API_URL = "http://localhost:2000";
-
-const getCoursesUrl = () => SERVER_API_URL + "/courses";
-const getTeachersUrl = () => SERVER_API_URL + "/teachers";
-const getFormUrl = () => SERVER_API_URL + "/form";
+const getCoursesUrl = () => process.env.REACT_APP_SERVER_API_URL + "/courses";
+const getTeachersUrl = () => process.env.REACT_APP_SERVER_API_URL + "/teachers";
+const getFormUrl = () => process.env.REACT_APP_SERVER_API_URL + "/form";
 
 export default {
   courseServiceUrl: getCoursesUrl(),

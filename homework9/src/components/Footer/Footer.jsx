@@ -7,7 +7,7 @@ const Footer = () => {
     <footer>
       <div className="footer--container">
         <div>
-          <p>©Simple Art, Inc. 2021</p>
+          <p>©Simple Art, Inc. {new Date().getFullYear()}</p>
           <p>All rights reserved</p>
         </div>
         <ul className="footer-nav">

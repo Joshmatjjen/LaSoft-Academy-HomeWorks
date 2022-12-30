@@ -16,7 +16,7 @@ export const getCoursesAction = () => async (dispatch) => {
     console.error("API Error", error);
     dispatch({
       type: CourseActionTypes.GET_COURSES,
-      payload: [],
+      payload: "No course found",
     });
     return { type: "error", data: error };
   }
@@ -42,10 +42,6 @@ export const subscribeAction = (data) => async (dispatch) => {
     return { type: "success", data: result };
   } catch (error) {
     console.error("API Error", error);
-    dispatch({
-      type: CourseActionTypes.GET_COURSES,
-      payload: [],
-    });
     return { type: "error", data: error };
   }
 };

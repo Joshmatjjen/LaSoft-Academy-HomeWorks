@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +27,8 @@ const customStyles = {
   },
 };
 
-const Subscribe = ({ modalIsOpen, closeModal, onSubscribeAction }) => {
+const Subscribe = ({ modalIsOpen, closeModal }) => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
@@ -67,7 +68,9 @@ const Subscribe = ({ modalIsOpen, closeModal, onSubscribeAction }) => {
                 type="button"
                 disabled={!validateEmail(email)}
                 onClick={async () => {
-                  const result = await onSubscribeAction({ email: email });
+                  const result = await dispatch(
+                    subscribeAction({ email: email })
+                  );
                   if (result.type === "success") {
                     navigate("apply", { state: { subscribeSuccess: true } });
                   } else {
@@ -89,8 +92,4 @@ const Subscribe = ({ modalIsOpen, closeModal, onSubscribeAction }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  onSubscribeAction: (data) => dispatch(subscribeAction(data)),
-});
-
-export default connect(null, mapDispatchToProps)(Subscribe);
+export default Subscribe;

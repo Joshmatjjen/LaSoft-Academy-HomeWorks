@@ -10,6 +10,7 @@
     "clsx": "^1.2.1",
     "currency-symbol-map": "^5.1.0",
     "google-map-react": "^2.2.0",
+    "morphism": "^1.12.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",

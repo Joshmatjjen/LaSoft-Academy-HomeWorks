@@ -7,7 +7,7 @@ import Button from "../../components/Button";
 import "./course.styles.css";
 import ImageBackground from "../../components/ImageBackground";
 
-const Course = ({ onGetCoursesAction, courses }) => {
+const Course = () => {
   const { state: courseData } = useLocation();
 
   return (
@@ -33,7 +33,7 @@ const Course = ({ onGetCoursesAction, courses }) => {
         <div className="course--content__left--3">
           <p>You will learn:</p>
           <ul>
-            {courseData.description_full.map((item, i) => (
+            {courseData.descriptionFull.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>

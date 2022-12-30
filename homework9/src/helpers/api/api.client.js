@@ -28,7 +28,6 @@ const httpRequest = (method) => async (serviceUrl, pathUrl, data) => {
 
   const options = {
     headers: {
-      // "X-Application-ID": config.applicationId,
       "Content-type": "application/json",
     },
     method,
@@ -75,14 +74,10 @@ const httpRequest = (method) => async (serviceUrl, pathUrl, data) => {
 
 export const getRequest = httpRequest("get");
 export const postRequest = httpRequest("post");
-export const putRequest = httpRequest("put");
-export const deleteRequest = httpRequest("delete");
 
 const apiClient = {
   get: getRequest,
   post: postRequest,
-  put: putRequest,
-  delete: deleteRequest,
 };
 
 export default apiClient;

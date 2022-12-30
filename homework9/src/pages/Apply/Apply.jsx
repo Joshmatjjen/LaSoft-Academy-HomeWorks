@@ -1,13 +1,11 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import React, { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import {
   applyCoursesAction,
   getCoursesAction,
 } from "../../resources/course/course.actions";
-import { selectCourses } from "../../resources/course/course.selectors";
 
 import Button from "../../components/Button";
 import { InputApply } from "../../components/Input";
@@ -19,7 +17,10 @@ import artWorkImg from "../../assets/img/artWork.png";
 import "./apply.styles.css";
 import ImageBackground from "../../components/ImageBackground";
 
-const Apply = ({ onGetCoursesAction, courses, onApplyCoursesAction }) => {
+const Apply = () => {
+  const dispatch = useDispatch();
+  const courses = useSelector((state) => state.course.courses);
+
   const { state } = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -38,26 +39,26 @@ const Apply = ({ onGetCoursesAction, courses, onApplyCoursesAction }) => {
   );
 
   const fetchCourses = useCallback(async () => {
-    await onGetCoursesAction();
-  }, [onGetCoursesAction]);
+    await dispatch(getCoursesAction());
+  }, [dispatch]);
 
   const submitForm = useCallback(async () => {
     setLoading(true);
 
-    const res = await onApplyCoursesAction(formData);
+    const res = await dispatch(applyCoursesAction(formData));
     if (res.type === "success") {
       setLoading(false);
       setApplySuccess(true);
     } else {
       setLoading(false);
     }
-  }, [formData, onApplyCoursesAction]);
+  }, [dispatch, formData]);
 
   useEffect(() => {
     fetchCourses();
   }, [fetchCourses]);
 
-  useMemo(() => {
+  useEffect(() => {
     if (courses) {
       const courseData = courses.map((it) => {
         return { ...it, label: it.name, value: it.name };
@@ -66,7 +67,7 @@ const Apply = ({ onGetCoursesAction, courses, onApplyCoursesAction }) => {
     }
   }, [courses]);
 
-  useMemo(() => {
+  useEffect(() => {
     if (selectedCourse) {
       const groupData = selectedCourse.groups.map((it) => {
         return {
@@ -182,13 +183,4 @@ const Apply = ({ onGetCoursesAction, courses, onApplyCoursesAction }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  courses: selectCourses,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onGetCoursesAction: (data) => dispatch(getCoursesAction(data)),
-  onApplyCoursesAction: (data) => dispatch(applyCoursesAction(data)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Apply);
+export default Apply;

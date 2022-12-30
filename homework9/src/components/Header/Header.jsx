@@ -10,6 +10,18 @@ const Header = ({ showBackButton }) => {
   const navigate = useNavigate();
   const cb = document.querySelector("#menu-btn");
   const body = document.getElementsByTagName("BODY")[0];
+  const allNav = [
+    { title: "Course", type: "link", routeTo: "/courses" },
+    { title: "Teacher", type: "link", routeTo: "/teachers" },
+    { title: "About us", type: "link", routeTo: "/about" },
+    {
+      title: "Apply now",
+      type: "button",
+      routeTo: "/apply",
+      liClass: "menu__btn",
+      aClass: "btn",
+    },
+  ];
 
   const toggle = () => {
     if (cb.checked) {
@@ -45,16 +57,16 @@ const Header = ({ showBackButton }) => {
               <span className="nav-icon"></span>
             </label>
             <ul className="menu-list-container">
-              <NavItem title="Course" type="link" routeTo={"/courses"} />
-              <NavItem title="Teacher" type="link" routeTo={"/teachers"} />
-              <NavItem title="About us" type="link" routeTo={"/about"} />
-              <NavItem
-                title="Apply now"
-                type="button"
-                routeTo={"/apply"}
-                liClass="menu__btn"
-                aClass="btn"
-              />
+              {allNav.map((item) => (
+                <NavItem
+                  key={item.routeTo}
+                  title={item?.title}
+                  type={item?.type}
+                  routeTo={item?.routeTo}
+                  liClass={item?.liClass}
+                  aClass={item?.aClass}
+                />
+              ))}
             </ul>
           </>
         )}

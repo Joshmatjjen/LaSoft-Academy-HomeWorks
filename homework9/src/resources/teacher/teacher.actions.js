@@ -15,8 +15,8 @@ export const getTeachersAction = () => async (dispatch) => {
     console.error("API Error", error);
     dispatch({
       type: TeacherActionTypes.GET_TEACHERS,
-      payload: [],
+      payload: "No teacher found",
     });
-    return { type: "error", data: error };
+    return { type: "error", data: "No teacher found" };
   }
 };

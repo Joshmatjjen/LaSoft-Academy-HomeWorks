@@ -13,12 +13,11 @@ import "./about.styles.css";
 
 const About = () => {
   const renderMarkers = (map, maps) => {
-    let marker = new maps.Marker({
+    return new maps.Marker({
       position: { lat: 39.826279, lng: -75.180313 },
       map,
       title: "Hello World!",
     });
-    return marker;
   };
 
   return (
@@ -65,7 +64,6 @@ const About = () => {
           </div>
         </div>
         <div className="content--one__right contact-location">
-          {/* <img src={parisImg} alt="Paris Eiffel Tower" /> */}
           <GoogleMapReact
             bootstrapURLKeys={{ key: "" }}
             defaultCenter={{ lat: 39.826279, lng: -75.180313 }}

@@ -1,32 +1,56 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import { useDispatch, useSelector } from "react-redux";
 import BounceLoader from "react-spinners/BounceLoader";
 import getSymbolFromCurrency from "currency-symbol-map";
+import { morphism } from "morphism";
 
 import { getCoursesAction } from "../../resources/course/course.actions";
-import { selectCourses } from "../../resources/course/course.selectors";
 
 import Button from "../../components/Button";
 
 import "./courses.styles.css";
 
-const Courses = ({ onGetCoursesAction, courses }) => {
+const Courses = () => {
+  const dispatch = useDispatch();
+  const courses = useSelector((state) => state.course.courses);
+
+  const courseToCamel = (data) => {
+    const schema = {
+      id: "id",
+      level: "level",
+      name: "name",
+      currency: "currency",
+      duration: "duration",
+      fullImgUrl: "full_img_url",
+      groups: "groups",
+      periodicity: "periodicity",
+      thumbnailImgUrl: "thumbnail_img_url",
+      descriptionFull: "description_full",
+      descriptionShort: "description_short",
+    };
+
+    const source = {
+      ...data,
+    };
+
+    return morphism(schema, source);
+  };
+
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
 
   const fetchCourses = useCallback(async () => {
     setErrorMsg(null);
     setLoading(true);
-    const res = await onGetCoursesAction();
+    const res = await dispatch(getCoursesAction());
     if (res.type === "success") {
       setErrorMsg(null);
       setLoading(false);
     } else {
-      setErrorMsg("No course found");
+      setErrorMsg(res.data);
       setLoading(false);
     }
-  }, [onGetCoursesAction]);
+  }, [dispatch]);
 
   useEffect(() => {
     fetchCourses();
@@ -57,36 +81,38 @@ const Courses = ({ onGetCoursesAction, courses }) => {
 
           <section className="courses--content__box">
             {courses?.map((item) => (
-              <div key={item.id} className="courses-item">
-                <img src={item.thumbnail_img_url} alt="" />
+              <div key={courseToCamel(item).id} className="courses-item">
+                <img src={courseToCamel(item).thumbnailImgUrl} alt="" />
                 <div className="courses-item-container">
                   <div className="courses-item-1">
-                    <p>{item.name}</p>
-                    <p>{getSymbolFromCurrency(item.currency)}300</p>
+                    <p>{courseToCamel(item).name}</p>
+                    <p>
+                      {getSymbolFromCurrency(courseToCamel(item).currency)}300
+                    </p>
                   </div>
                   <div className="courses-item-2">
                     <div>
                       <p>Level:</p>
-                      <p>{item.level}</p>
+                      <p>{courseToCamel(item).level}</p>
                     </div>
                     <div>
                       <p>Duration:</p>
                       <p>
-                        {item.duration}
+                        {courseToCamel(item).duration}
                         <br />
-                        {item.periodicity}
+                        {courseToCamel(item).periodicity}
                       </p>
                     </div>
                   </div>
                   <div className="courses-item-3">
-                    <p>{item.description_short}...</p>
+                    <p>{courseToCamel(item).descriptionShort}...</p>
                   </div>
                   <Button
                     type="route"
                     title="Apply"
                     classes="courses-item-btn"
-                    route={`/courses/${item.id}`}
-                    data={item}
+                    route={`/courses/${courseToCamel(item).id}`}
+                    data={courseToCamel(item)}
                   />
                 </div>
               </div>
@@ -98,12 +124,4 @@ const Courses = ({ onGetCoursesAction, courses }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  courses: selectCourses,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onGetCoursesAction: (data) => dispatch(getCoursesAction(data)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Courses);
+export default Courses;
